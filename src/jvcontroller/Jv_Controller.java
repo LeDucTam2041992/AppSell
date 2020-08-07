@@ -202,7 +202,7 @@ public class Jv_Controller {
     public LinkedList<Product> findProductByProducer(String producerName, LinkedList<Product> products) throws IOException {
         LinkedList<Product> productFind = new LinkedList<>();
         for (Product product: products) {
-            if (product.getProducer().getNameProducer().equalsIgnoreCase(producerName)) productFind.add(product);
+            if (product.getProducer().equalsIgnoreCase(producerName)) productFind.add(product);
         }
         return productFind;
     }

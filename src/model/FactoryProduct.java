@@ -9,9 +9,8 @@ public class FactoryProduct {
         String[] datas = data.split("\\|");
         switch (datas[0]) {
             case "SmartPhone" :
-                Smartphone smartphone = new Smartphone(datas[0],datas[1],datas[2],Integer.parseInt(datas[3]),new Producer()
+                Smartphone smartphone = new Smartphone(datas[0],datas[1],datas[2],Integer.parseInt(datas[3]),datas[4]
                         , datas[5], datas[6] , new HashMap<>());
-                smartphone.producer.setNameProducer(datas[4]);
                 String s = datas[7].substring(1,datas[7].length()-1);
                 s = s.replaceAll("\\s+","");
                 String[] s1 = s.split(",");

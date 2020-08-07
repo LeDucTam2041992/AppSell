@@ -4,13 +4,13 @@ public class Product {
     String species, productCode, productName;
     int price;
     String imgLink;
-    Producer producer;
+    String producer;
     String specifications;
 
     public Product() {
     }
 
-    public Product(String species, String productCode, String productName, int price, Producer producer, String specifications, String imgLink) {
+    public Product(String species, String productCode, String productName, int price, String producer, String specifications, String imgLink) {
         this.species = species;
         this.productCode = productCode;
         this.productName = productName;
@@ -60,11 +60,11 @@ public class Product {
         this.price = price;
     }
 
-    public Producer getProducer() {
+    public String getProducer() {
         return producer;
     }
 
-    public void setProducer(Producer producer) {
+    public void setProducer(String producer) {
         this.producer = producer;
     }
 

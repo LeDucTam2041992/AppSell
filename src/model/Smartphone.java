@@ -12,7 +12,7 @@ public class Smartphone extends Product{
         this.colorAndQuantity = colorAndQuantity;
     }
 
-    public Smartphone(String species, String productCode, String productName, int price, Producer producer, String specifications, String img , Map<String, Integer> colorAndQuantity) {
+    public Smartphone(String species, String productCode, String productName, int price, String producer, String specifications, String img , Map<String, Integer> colorAndQuantity) {
         super(species, productCode, productName, price, producer, specifications,img);
         this.colorAndQuantity = colorAndQuantity;
     }
@@ -32,13 +32,13 @@ public class Smartphone extends Product{
         System.out.println("Product Code : " + productCode);
         System.out.println("Product Name : " + productName);
         System.out.println("Price : " + price);
-        System.out.println("Producer : " + producer.getNameProducer());
+        System.out.println("Producer : " + producer);
         colorAndQuantity.forEach((s, integer) -> System.out.println(s + " : " + integer));
     }
 
     @Override
     public String fileData() {
-        String data = species + "|" + productCode + "|" + productName + "|" + price + "|" + producer.getNameProducer() + "|"
+        String data = species + "|" + productCode + "|" + productName + "|" + price + "|" + producer + "|"
                 + specifications + "|" + imgLink + "|" + colorAndQuantity;
         return data;
     }
