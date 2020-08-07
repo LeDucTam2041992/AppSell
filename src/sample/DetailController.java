@@ -76,7 +76,7 @@ public class DetailController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(sampleParent);
+        Scene scene = new Scene(sampleParent,1000,700);
         stage.setScene(scene);
     }
 
