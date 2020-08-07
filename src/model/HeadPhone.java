@@ -16,7 +16,12 @@ public class HeadPhone extends Product{
 
     @Override
     public void showInfo() {
-
+        System.out.println("Species : " + species);
+        System.out.println("Product Code : " + productCode);
+        System.out.println("Product Name : " + productName);
+        System.out.println("Price : " + price);
+        System.out.println("Producer : " + producer);
+        System.out.println("Type : " + type);
     }
 
     @Override

@@ -22,7 +22,9 @@ public class FactoryProduct {
                 smartphone.setColorAndQuantity(map);
                 return smartphone;
             case "HeadPhone" :
-                return new HeadPhone();
+                HeadPhone headPhone = new HeadPhone(datas[0],datas[1],datas[2],Integer.parseInt(datas[3]),datas[4]
+                        , datas[5], datas[6], datas[7]);
+                return headPhone;
             default: throw new IllegalArgumentException("This product type is unsupported");
         }
     }

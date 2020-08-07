@@ -18,3 +18,13 @@ SmartPhone|100017|Samsung Galaxy ZFlip|32500000|Samsung|Samsung Galaxy ZFlip|/im
 SmartPhone|100018|Xiaomi Mi Note 10 Lite|9500000|Xiaomi|Xiaomi Mi Note 10 Lite|/img/xiaomi-mi-note-10-lite.jpg|{color=5, Grey=10}
 SmartPhone|100019|Xiaomi Mi Note 10 Pro|15500000|Xiaomi|Xiaomi Mi Note 10 Pro|/img/xiaomi-mi-note-10-pro.jpg|{color=5, Grey=10}
 SmartPhone|100020|Xiaomi Red Mi Note 9 Pro|11500000|Xiaomi|Xiaomi Red Mi Note 9 Pro|/img/xiaomi-redmi-note-9-pro.jpg|{color=5, Grey=10}
+HeadPhone|200001|AirPods Pro MWP22|7500000|Apple|AirPods Pro MWP22|/img/airpods-pro.jpg|Bluetooth
+HeadPhone|200002|AirPods 2 Wireless|4900000|Apple|AirPods 2 Wireless|/img/airpods-2-wireless.jpg|Bluetooth
+HeadPhone|200003|LG HBS-835 Đen|1900000|LG|LG HBS-835|/img/bluetooth-lg-hbs.jpg|Bluetooth
+HeadPhone|200004|Sony Extra Bass WH-XB700|2990000|Sony|Sony Extra Bass WH-XB700|/img/bluetooth-sony-wh-xb700.jpg|No wireless
+HeadPhone|200005|Sony WF-SP800N|4790000|Sony|Sony WF-SP800N|/img/bluetooth-true-wireless-sony-wf-sp800.jpg|Bluetooth
+HeadPhone|200006|Huawei FreeBuds 3|4290000|Huawei|Huawei FreeBuds 3|/img/bluetooth-tws-huawei-freebuds.jpg|Bluetooth
+HeadPhone|200007|Sony WF-1000XM3BME|5490000|Sony|Sony WF-1000XM3BME|/img/bluetooth-tws-sony-wf-1000xm.jpg|Bluetooth
+HeadPhone|200008|Rapoo VH510|7500000|Unknown|Rapoo VH510|/img/tai-nghe-gaming-71-rapoo.jpg|No wireless
+HeadPhone|200009|Gaming Logitech G Pro|2490000|Unknown|Gaming Logitech G Pro|/img/tai-nghe-gaming-logitech.jpg|No wireless
+HeadPhone|200010|Sony Extra Bass MDR-XB550AP|1190000|Sony|Sony Extra Bass MDR-XB550AP|/img/tai-nghe-sony-mdr-xb550.jpg|No wireless
