@@ -97,19 +97,19 @@
     <right>
         <TilePane prefHeight="466.0" prefWidth="172.0" BorderPane.alignment="CENTER">
             <children>
-                <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Iphone">
+                <CheckBox fx:id="checkBoxA" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Iphone" onAction="#sort">
                     <TilePane.margin>
                         <Insets />
                     </TilePane.margin>
                 </CheckBox>
-                <CheckBox fx:id="checkBoxA" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Samsung" onAction="#sort">
+                <CheckBox fx:id="checkBoxB" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Samsung" onAction="#sort">
                     <TilePane.margin>
                         <Insets />
                     </TilePane.margin>
                 </CheckBox>
-                <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Huawei" />
-                <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="OPPO" />
-                <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Xiaomi" />
+                <CheckBox fx:id="checkBoxC" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Huawei" onAction="#sort" />
+                <CheckBox fx:id="checkBoxD" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="OPPO" onAction="#sort" />
+                <CheckBox fx:id="checkBoxE" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="Xiaomi" onAction="#sort" />
                 <CheckBox fx:id="checkBox1" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="&gt;1000 $" onAction="#sort"/>
                 <CheckBox fx:id="checkBox2" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="700$ - 1000$" onAction="#sort"/>
                 <CheckBox fx:id="checkBox3" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="350$ - 700$" onAction="#sort">

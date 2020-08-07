@@ -28,13 +28,12 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     final String productFile = "Product.Dat";
     Jv_Controller controller = Jv_Controller.getInstance();
-    LinkedList<Product> screenMid = new LinkedList<>();
-    LinkedList<Product> screenFont = new LinkedList<>();
-    LinkedList<Product> screenEnd = new LinkedList<>();
+    LinkedList<Product> screenMid;
+    LinkedList<Product> screenFont;
+    LinkedList<Product> screenEnd;
     LinkedList<Product> datas = new LinkedList<>();
     LinkedList<Product> smartphone = new LinkedList<>();
     LinkedList<Product> headphone = new LinkedList<>();
-
     @FXML
     ImageView imgItem1 = new ImageView();
     @FXML
@@ -92,12 +91,18 @@ public class Controller implements Initializable {
     @FXML
     CheckBox checkBox3;
     @FXML
+    CheckBox checkBoxB;
+    @FXML
     CheckBox checkBoxA;
-
+    @FXML
+    CheckBox checkBoxC;
+    @FXML
+    CheckBox checkBoxD;
+    @FXML
+    CheckBox checkBoxE;
     ArrayList<ImageView> listImg = new ArrayList<>();
     ArrayList<Text> listName = new ArrayList<>();
     ArrayList<Text> listPrice = new ArrayList<>();
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -143,8 +148,11 @@ public class Controller implements Initializable {
         setScreen(screenMid);
     }
     public void setData(LinkedList<Product> data){
-        screenFont = data;
+        screenFont = new LinkedList<>(data);
+        screenMid = new LinkedList<>();
+        screenEnd = new LinkedList<>();
         for (int i = 0; i < 8; i++) {
+            if(screenFont.isEmpty()) break;
             screenMid.add(screenFont.pop());
         }
     }
@@ -243,6 +251,10 @@ public class Controller implements Initializable {
         boolean isChoose2 = checkBox2.isSelected();
         boolean isChoose3 = checkBox3.isSelected();
         boolean isChooseA = checkBoxA.isSelected();
+        boolean isChooseB = checkBoxB.isSelected();
+        boolean isChooseC = checkBoxC.isSelected();
+        boolean isChooseD = checkBoxD.isSelected();
+        boolean isChooseE = checkBoxE.isSelected();
         if (isChoose1) {
             LinkedList<Product> sort1 = controller.findProductByPrice(20000000, 100000000, datas);
             sortPrice.addAll(sort1);
@@ -256,8 +268,24 @@ public class Controller implements Initializable {
             sortPrice.addAll(sort3);
         }
         if (isChooseA) {
-            LinkedList<Product> sortA = controller.findProductByProducer("Samsung", datas);
+            LinkedList<Product> sortA = controller.findProductByProducer("Apple", datas);
             sortProducer.addAll(sortA);
+        }
+        if (isChooseB) {
+            LinkedList<Product> sortB = controller.findProductByProducer("Samsung", datas);
+            sortProducer.addAll(sortB);
+        }
+        if (isChooseC) {
+            LinkedList<Product> sortC = controller.findProductByProducer("Huawei", datas);
+            sortProducer.addAll(sortC);
+        }
+        if (isChooseD) {
+            LinkedList<Product> sortD = controller.findProductByProducer("OPPO", datas);
+            sortProducer.addAll(sortD);
+        }
+        if (isChooseE) {
+            LinkedList<Product> sortE = controller.findProductByProducer("Xiaomi", datas);
+            sortProducer.addAll(sortE);
         }
         if(!sortPrice.isEmpty() && !sortProducer.isEmpty()) {
             for (Product p: sortPrice) {
@@ -268,8 +296,10 @@ public class Controller implements Initializable {
         } else {
             sortProduct.addAll(sortPrice);
         }
-        setScreen(sortProduct);
+        setData(sortProduct);
+        setScreen(screenMid);
         if(sortPrice.isEmpty() && sortProducer.isEmpty()) {
+            setData(smartphone);
             setScreen(screenMid);
         }
     }
