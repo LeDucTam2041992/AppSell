@@ -10,10 +10,8 @@ public class FactoryProduct {
         switch (datas[0]) {
             case "SmartPhone" :
                 Smartphone smartphone = new Smartphone(datas[0],datas[1],datas[2],Integer.parseInt(datas[3]),new Producer()
-                        , new Specifications(), new Img() , new HashMap<>());
+                        , datas[5], datas[6] , new HashMap<>());
                 smartphone.producer.setNameProducer(datas[4]);
-                smartphone.specifications.setCodeSpec(datas[5]);
-                smartphone.img.setUrl(datas[6]);
                 String s = datas[7].substring(1,datas[7].length()-1);
                 s = s.replaceAll("\\s+","");
                 String[] s1 = s.split(",");

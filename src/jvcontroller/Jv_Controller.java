@@ -170,7 +170,7 @@ public class Jv_Controller {
     }
 
     public Specifications findSpecificationsOfProduct(Product product, ArrayList<Specifications> specifications) {
-        String codeSpec = product.getSpecifications().getCodeSpec();
+        String codeSpec = product.getSpecifications();
         for (Specifications s : specifications) {
             if (codeSpec.equalsIgnoreCase(s.getCodeSpec())) return s;
         }

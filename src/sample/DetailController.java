@@ -19,7 +19,6 @@ import model.Specifications;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 public class DetailController implements Initializable {
@@ -57,7 +56,7 @@ public class DetailController implements Initializable {
         proBuy = product;
         Specifications spec = controller.findSpecificationsOfProduct(product,specifications);
         name.setText(product.getProductName());
-        Image img = new Image(product.getImg().getUrl());
+        Image img = new Image(product.getImgLink());
         productImg.setImage(img);
         screen.setText("Screen : " + spec.getScreen());
         ram.setText("Ram : " + spec.getRam());

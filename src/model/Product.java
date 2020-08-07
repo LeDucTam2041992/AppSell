@@ -3,29 +3,29 @@ package model;
 public class Product {
     String species, productCode, productName;
     int price;
-    Img img;
+    String imgLink;
     Producer producer;
-    Specifications specifications;
+    String specifications;
 
     public Product() {
     }
 
-    public Product(String species, String productCode, String productName, int price, Producer producer, Specifications specifications, Img img) {
+    public Product(String species, String productCode, String productName, int price, Producer producer, String specifications, String imgLink) {
         this.species = species;
         this.productCode = productCode;
         this.productName = productName;
         this.price = price;
         this.producer = producer;
         this.specifications = specifications;
-        this.img = img;
+        this.imgLink = imgLink;
     }
 
-    public Img getImg() {
-        return img;
+    public String getImgLink() {
+        return imgLink;
     }
 
-    public void setImg(Img img) {
-        this.img = img;
+    public void setImgLink(String imgLink) {
+        this.imgLink = imgLink;
     }
 
     public String getSpecies() {
@@ -68,11 +68,11 @@ public class Product {
         this.producer = producer;
     }
 
-    public Specifications getSpecifications() {
+    public String getSpecifications() {
         return specifications;
     }
 
-    public void setSpecifications(Specifications specifications) {
+    public void setSpecifications(String specifications) {
         this.specifications = specifications;
     }
 

@@ -190,7 +190,7 @@ public class Controller implements Initializable {
         String price;
         for (int i = 0; i < screen.size(); i++) {
             product = screen.get(i);
-            link = product.getImg().getUrl();
+            link = product.getImgLink();
             name = product.getProductName();
             price = "Price : " + product.getPrice() + " Vnd";
             Image image = new Image(link);

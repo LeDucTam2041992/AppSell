@@ -12,7 +12,7 @@ public class Smartphone extends Product{
         this.colorAndQuantity = colorAndQuantity;
     }
 
-    public Smartphone(String species, String productCode, String productName, int price, Producer producer, Specifications specifications, Img img , Map<String, Integer> colorAndQuantity) {
+    public Smartphone(String species, String productCode, String productName, int price, Producer producer, String specifications, String img , Map<String, Integer> colorAndQuantity) {
         super(species, productCode, productName, price, producer, specifications,img);
         this.colorAndQuantity = colorAndQuantity;
     }
@@ -39,7 +39,7 @@ public class Smartphone extends Product{
     @Override
     public String fileData() {
         String data = species + "|" + productCode + "|" + productName + "|" + price + "|" + producer.getNameProducer() + "|"
-                + specifications.getCodeSpec() + "|" + img.getUrl() + "|" + colorAndQuantity;
+                + specifications + "|" + imgLink + "|" + colorAndQuantity;
         return data;
     }
 
