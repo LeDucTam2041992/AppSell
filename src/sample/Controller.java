@@ -303,5 +303,15 @@ public class Controller implements Initializable {
             setScreen(screenMid);
         }
     }
+
+    public void loadSmartPhone(ActionEvent event) {
+        setData(smartphone);
+        setScreen(screenMid);
+    }
+
+    public void loadHeadPhone(ActionEvent event) {
+        setData(headphone);
+        setScreen(screenMid);
+    }
 }
 
