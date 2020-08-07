@@ -14,8 +14,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import jvcontroller.Jv_Controller;
+import model.HeadPhone;
 import model.Product;
 import javafx.stage.Stage;
+import model.Smartphone;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,12 +27,13 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     final String productFile = "Product.Dat";
-
-
     Jv_Controller controller = Jv_Controller.getInstance();
     LinkedList<Product> screenMid = new LinkedList<>();
     LinkedList<Product> screenFont = new LinkedList<>();
     LinkedList<Product> screenEnd = new LinkedList<>();
+    LinkedList<Product> datas = new LinkedList<>();
+    LinkedList<Product> smartphone = new LinkedList<>();
+    LinkedList<Product> headphone = new LinkedList<>();
 
     @FXML
     ImageView imgItem1 = new ImageView();
@@ -122,16 +125,28 @@ public class Controller implements Initializable {
         listImg.add(imgItem8);
         listName.add(nameItem8);
         listPrice.add(priceItem8);
+
         try {
-            screenFont = controller.readProductFromFile(productFile);
+            datas = controller.readProductFromFile(productFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        for (Product p: datas) {
+            if(p instanceof Smartphone) {
+                smartphone.add(p);
+            }
+            if(p instanceof HeadPhone) {
+                headphone.add(p);
+            }
+        }
+        setData(smartphone);
+        setScreen(screenMid);
+    }
+    public void setData(LinkedList<Product> data){
+        screenFont = data;
         for (int i = 0; i < 8; i++) {
             screenMid.add(screenFont.pop());
         }
-        setScreen(screenMid);
-
     }
 
     public void goNext() {
@@ -192,11 +207,7 @@ public class Controller implements Initializable {
     private void showProduct(MouseEvent mouseEvent) throws IOException {
         Stage primaryStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         String productName = ((Text) mouseEvent.getSource()).getText();
-
-        LinkedList<Product> products = new LinkedList<>(screenEnd);
-        products.addAll(screenMid);
-        products.addAll(screenFont);
-        Product product = controller.findProductByName(productName, products);
+        Product product = controller.findProductByName(productName, datas);
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("detail.fxml"));
@@ -216,10 +227,7 @@ public class Controller implements Initializable {
 
     public void findProduct(ActionEvent event) throws IOException {
         String str = findName.getText();
-        LinkedList<Product> products = new LinkedList<>(screenEnd);
-        products.addAll(screenMid);
-        products.addAll(screenFont);
-        Product product = controller.findProductByName(str,products);
+        Product product = controller.findProductByName(str,datas);
         if(product != null) {
             LinkedList<Product> sc = new LinkedList<>();
             sc.add(product);
@@ -231,28 +239,26 @@ public class Controller implements Initializable {
         LinkedList<Product> sortPrice = new LinkedList<>();
         LinkedList<Product> sortProducer = new LinkedList<>();
         LinkedList<Product> sortProduct = new LinkedList<>();
-        LinkedList<Product> products = controller.readProductFromFile(productFile);
         boolean isChoose1 = checkBox1.isSelected();
         boolean isChoose2 = checkBox2.isSelected();
         boolean isChoose3 = checkBox3.isSelected();
         boolean isChooseA = checkBoxA.isSelected();
         if (isChoose1) {
-            LinkedList<Product> sort1 = controller.findProductByPrice(20000000, 100000000, products);
+            LinkedList<Product> sort1 = controller.findProductByPrice(20000000, 100000000, datas);
             sortPrice.addAll(sort1);
         }
         if (isChoose2) {
-            LinkedList<Product> sort2 = controller.findProductByPrice(14000000, 20000000, products);
+            LinkedList<Product> sort2 = controller.findProductByPrice(14000000, 20000000, datas);
             sortPrice.addAll(sort2);
         }
         if (isChoose3) {
-            LinkedList<Product> sort3 = controller.findProductByPrice(6000000, 14000000, products);
+            LinkedList<Product> sort3 = controller.findProductByPrice(6000000, 14000000, datas);
             sortPrice.addAll(sort3);
         }
         if (isChooseA) {
-            LinkedList<Product> sortA = controller.findProductByProducer("Samsung", products);
+            LinkedList<Product> sortA = controller.findProductByProducer("Samsung", datas);
             sortProducer.addAll(sortA);
         }
-
         if(!sortPrice.isEmpty() && !sortProducer.isEmpty()) {
             for (Product p: sortPrice) {
                 if(sortProducer.contains(p)) sortProduct.add(p);
@@ -262,14 +268,10 @@ public class Controller implements Initializable {
         } else {
             sortProduct.addAll(sortPrice);
         }
-
         setScreen(sortProduct);
-
-//        !isChoose1 && !isChoose2 && !isChoose3 && !isChooseA
         if(sortPrice.isEmpty() && sortProducer.isEmpty()) {
             setScreen(screenMid);
         }
     }
-
 }
 

@@ -178,16 +178,14 @@ public class Jv_Controller {
     }
 
     public Product findProductByName(String nameFind, LinkedList<Product> products) throws IOException {
-        while (!products.isEmpty()) {
-            Product product = products.pop();
+        for (Product product: products) {
             if (nameFind.equalsIgnoreCase(product.getProductName())) return product;
         }
         return null;
     }
 
     public Product findProductByCode(String codeFind, LinkedList<Product> products) throws IOException {
-        while (!products.isEmpty()) {
-            Product product = products.pop();
+        for (Product product: products) {
             if (codeFind.equalsIgnoreCase(product.getProductCode())) return product;
         }
         return null;
