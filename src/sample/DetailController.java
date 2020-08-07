@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
 public class DetailController implements Initializable {
     Jv_Controller controller = Jv_Controller.getInstance();
     ArrayList<Specifications> specifications = controller.readSpecificationsFromFile("Spec.Dat");
+    Product proBuy;
 
     @FXML
     ImageView productImg = new ImageView();
@@ -53,6 +54,7 @@ public class DetailController implements Initializable {
     }
 
     public void setProduct(Product product) {
+        proBuy = product;
         Specifications spec = controller.findSpecificationsOfProduct(product,specifications);
         name.setText(product.getProductName());
         Image img = new Image(product.getImg().getUrl());
@@ -75,7 +77,23 @@ public class DetailController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Controller controller = loader.getController();
+        Scene scene = new Scene(sampleParent);
+        stage.setScene(scene);
+    }
+
+    public void buy(ActionEvent event) {
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Custom.fxml"));
+        Parent sampleParent = null;
+        try {
+            sampleParent = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        CustomController customController = loader.getController();
+        customController.setProBuy(proBuy);
         Scene scene = new Scene(sampleParent);
         stage.setScene(scene);
     }

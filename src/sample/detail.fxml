@@ -15,10 +15,10 @@
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="productImg" fitHeight="356.0" fitWidth="333.0" layoutX="37.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="goBack" layoutX="204.0" layoutY="409.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="72.0" text="Back" />
-            <Button layoutX="119.0" layoutY="409.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Buy Now" />
-            <Text fx:id="name" layoutX="117.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="165.336669921875">
+            <ImageView fx:id="productImg" fitHeight="338.0" fitWidth="359.0" layoutX="11.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="goBack" layoutX="182.0" layoutY="434.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="72.0" text="Back" />
+            <Button layoutX="100.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" onAction="#buy" prefWidth="72.0" text="Buy Now" />
+            <Text fx:id="name" layoutX="100.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="164.53665161132812">
                <font>
                   <Font size="18.0" />
                </font></Text>
@@ -26,12 +26,12 @@
       </Pane>
    </center>
    <top>
-      <TextArea prefHeight="104.0" prefWidth="732.0" BorderPane.alignment="CENTER" />
+      <TextArea prefHeight="78.0" prefWidth="732.0" BorderPane.alignment="CENTER" />
    </top>
    <right>
-      <VBox prefHeight="450.0" prefWidth="317.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="450.0" prefWidth="366.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="screen" editable="false" prefHeight="11.0" prefWidth="258.0">
+            <TextArea fx:id="screen" editable="false" prefHeight="67.0" prefWidth="346.0">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>

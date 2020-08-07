@@ -73,6 +73,7 @@ public class Customer {
         System.out.println("Phone number : " + phoneNumber);
         System.out.println("Address : " + address);
         System.out.println("Item order : " + product.getProductCode());
+        System.out.println("Item name : " + product.getProductName());
         System.out.println("Time order : " + timeBuy);
     }
 
