@@ -103,7 +103,13 @@ public class Jv_Controller {
         closeFileAfterWrite(fileName);
     }
 
-    public void writeSpecificationsToFile(String fileName, Specifications specifications) {
+    public void writeSpecificationsToFile(String fileName, SpecSmartPhone specifications) {
+        openFileToWrite(fileName);
+        printWriter.println(specifications.fileData());
+        closeFileAfterWrite(fileName);
+    }
+
+    public void writeSpecificationsToFile(String fileName, SpecHeadPhone specifications) {
         openFileToWrite(fileName);
         printWriter.println(specifications.fileData());
         closeFileAfterWrite(fileName);
@@ -130,14 +136,27 @@ public class Jv_Controller {
         return customers;
     }
 
-    public ArrayList<Specifications> readSpecificationsFromFile(String fileName) throws IOException {
+    public ArrayList<SpecSmartPhone> readSpecSmartPhoneFromFile(String fileName) throws IOException {
         String data;
-        ArrayList<Specifications> specs = new ArrayList<>();
+        ArrayList<SpecSmartPhone> specs = new ArrayList<>();
         openFileToRead(fileName);
         while ((data = bufferedReader.readLine()) != null) {
             String[] datas = data.split("\\|");
-            Specifications specifications = new Specifications(datas[0], datas[1], datas[2], datas[3], datas[4],
+            SpecSmartPhone specifications = new SpecSmartPhone(datas[0], datas[1], datas[2], datas[3], datas[4],
                     datas[5], datas[6]);
+            specs.add(specifications);
+        }
+        closeFileAfterRead(fileName);
+        return specs;
+    }
+
+    public ArrayList<SpecHeadPhone> readSpecHeadPhoneFromFile(String fileName) throws IOException {
+        String data;
+        ArrayList<SpecHeadPhone> specs = new ArrayList<>();
+        openFileToRead(fileName);
+        while ((data = bufferedReader.readLine()) != null) {
+            String[] datas = data.split("\\|");
+            SpecHeadPhone specifications = new SpecHeadPhone(datas[0], datas[1], datas[2], datas[3], datas[4]);
             specs.add(specifications);
         }
         closeFileAfterRead(fileName);
@@ -169,9 +188,17 @@ public class Jv_Controller {
         return producers;
     }
 
-    public Specifications findSpecificationsOfProduct(Product product, ArrayList<Specifications> specifications) {
+    public SpecSmartPhone findSpecSmartphoneOfProduct(Product product, ArrayList<SpecSmartPhone> specifications) {
         String codeSpec = product.getSpecifications();
-        for (Specifications s : specifications) {
+        for (SpecSmartPhone s : specifications) {
+            if (codeSpec.equalsIgnoreCase(s.getCodeSpec())) return s;
+        }
+        return null;
+    }
+
+    public SpecHeadPhone findSpecHeadPhoneOfProduct(Product product, ArrayList<SpecHeadPhone> specifications) {
+        String codeSpec = product.getSpecifications();
+        for (SpecHeadPhone s : specifications) {
             if (codeSpec.equalsIgnoreCase(s.getCodeSpec())) return s;
         }
         return null;

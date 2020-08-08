@@ -14,7 +14,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import jvcontroller.Jv_Controller;
 import model.Product;
-import model.Specifications;
+import model.SpecHeadPhone;
+import model.SpecSmartPhone;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +24,8 @@ import java.util.ResourceBundle;
 
 public class DetailController implements Initializable {
     Jv_Controller controller = Jv_Controller.getInstance();
-    ArrayList<Specifications> specifications = controller.readSpecificationsFromFile("Spec.Dat");
+    ArrayList<SpecSmartPhone> specSmartPhones = controller.readSpecSmartPhoneFromFile("SpecSmartPhone.Dat");
+    ArrayList<SpecHeadPhone> specHeadPhones = controller.readSpecHeadPhoneFromFile("SpecHeadPhone.Dat");
     Product proBuy;
 
     @FXML
@@ -33,19 +35,19 @@ public class DetailController implements Initializable {
     @FXML
     Text price;
     @FXML
-    TextArea screen;
+    TextArea spec1;
     @FXML
-    TextArea ram;
+    TextArea spec2;
     @FXML
-    TextArea chip;
+    TextArea spec3;
     @FXML
-    TextArea operaSystem;
+    TextArea spec4;
     @FXML
-    TextArea camera;
+    TextArea spec5;
     @FXML
-    TextArea pin;
+    TextArea spec6;
     @FXML
-    TextArea producer;
+    TextArea spec7;
 
     public DetailController() throws IOException {
     }
@@ -56,20 +58,34 @@ public class DetailController implements Initializable {
 
     public void setProduct(Product product) {
         proBuy = product;
-        Specifications spec = controller.findSpecificationsOfProduct(product,specifications);
+        SpecSmartPhone specSmartPhone = null;
+        SpecHeadPhone specHeadPhone = null;
+        if (proBuy.getSpecies().equalsIgnoreCase("Smartphone")) {
+            specSmartPhone = controller.findSpecSmartphoneOfProduct(product, specSmartPhones);
+            if (specSmartPhone != null) {
+                spec1.setText("Screen : " + specSmartPhone.getScreen());
+                spec2.setText("Ram : " + specSmartPhone.getRam());
+                spec3.setText("Chip : " + specSmartPhone.getChip());
+                spec4.setText("Opera System : " + specSmartPhone.getOperaSystem());
+                spec5.setText("Camera : " + specSmartPhone.getCamera());
+                spec6.setText("Pin : " + specSmartPhone.getPin());
+                spec7.setText("Producer : " + product.getProducer());
+            }
+        }
+        if (proBuy.getSpecies().equalsIgnoreCase("HeadPhone")) {
+            specHeadPhone = controller.findSpecHeadPhoneOfProduct(product, specHeadPhones);
+            if (specHeadPhone != null) {
+                spec1.setText("Compatible : " + specHeadPhone.getCompatible());
+                spec2.setText("SoundTechnology : " + specHeadPhone.getSoundTechnology());
+                spec3.setText("TimeUse : " + specHeadPhone.getTimeUse());
+                spec4.setText("Connection distance : " + specHeadPhone.getDistance());
+                spec5.setText("Producer : " + product.getProducer());
+            }
+        }
         name.setText(product.getProductName());
         price.setText("Price : " + product.getPrice() + " Vnd");
         Image img = new Image(product.getImgLink());
         productImg.setImage(img);
-        if (spec != null) {
-            screen.setText("Screen : " + spec.getScreen());
-            ram.setText("Ram : " + spec.getRam());
-            chip.setText("Chip : " + spec.getChip());
-            operaSystem.setText("Opera System : " + spec.getOperaSystem());
-            camera.setText("Camera : " + spec.getCamera());
-            pin.setText("Pin : " + spec.getPin());
-            producer.setText("Producer : " + product.getProducer());
-        }
     }
 
     public void goBack(ActionEvent event) {

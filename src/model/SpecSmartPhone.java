@@ -1,12 +1,12 @@
 package model;
 
-public class Specifications {
+public class SpecSmartPhone {
     private String codeSpec, screen, ram, chip, operaSystem, pin, camera;
 
-    public Specifications() {
+    public SpecSmartPhone() {
     }
 
-    public Specifications(String codeSpec, String screen, String ram, String chip, String operaSystem, String pin, String camera) {
+    public SpecSmartPhone(String codeSpec, String screen, String ram, String chip, String operaSystem, String pin, String camera) {
         this.codeSpec = codeSpec;
         this.screen = screen;
         this.ram = ram;

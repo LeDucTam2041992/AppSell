@@ -17,7 +17,6 @@ import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.LinkedList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
@@ -65,7 +64,7 @@ public class CustomController implements Initializable {
                 Jv_Controller jv_controller = Jv_Controller.getInstance();
                 jv_controller.writeCustomerToFile(CUSTOMER_FILE,customer);
                 customer.showInfo();
-                cancel(event);
+                goBack(event);
 
             }
         }else {
@@ -77,7 +76,7 @@ public class CustomController implements Initializable {
         }
     }
 
-    public void cancel(ActionEvent event) {
+    public void goBack(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("sample.fxml"));

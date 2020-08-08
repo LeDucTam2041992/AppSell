@@ -38,7 +38,7 @@
             </Text>
             <TextField fx:id="phoneNumber" layoutX="260.0" layoutY="253.0" prefHeight="25.0" prefWidth="185.0" />
             <Button layoutX="166.0" layoutY="334.0" mnemonicParsing="false" onAction="#confirm" prefHeight="25.0" prefWidth="71.0" text="Buy" />
-            <Button layoutX="288.0" layoutY="334.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="71.0" text="Cancel" />
+            <Button layoutX="288.0" layoutY="334.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="71.0" text="Cancel" />
          </children>
       </Pane>
       <Text layoutX="199.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INFOMATION CUSTOMER" wrappingWidth="299.73667907714844">
