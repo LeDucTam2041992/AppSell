@@ -259,6 +259,8 @@ public class Controller implements Initializable {
         boolean isChooseC = checkBoxC.isSelected();
         boolean isChooseD = checkBoxD.isSelected();
         boolean isChooseE = checkBoxE.isSelected();
+        boolean isChoosePrice = isChoose1 || isChoose2 || isChoose3;
+        boolean isChooseBrand = isChooseA || isChooseB || isChooseC || isChooseD || isChooseE;
         boolean isNotChooseAll = (!isChoose1 && !isChoose2 && !isChoose3 &&
                 !isChooseA && !isChooseB && !isChooseC && !isChooseD && !isChooseE);
         if (isChoose1) {
@@ -293,15 +295,16 @@ public class Controller implements Initializable {
             LinkedList<Product> sortE = controller.findProductByProducer("Xiaomi", dataSort);
             sortProducer.addAll(sortE);
         }
-        if(!sortPrice.isEmpty() && !sortProducer.isEmpty()) {
+        if(isChoosePrice && isChooseBrand) {
             for (Product p: sortPrice) {
                 if(sortProducer.contains(p)) sortProduct.add(p);
             }
-        } else if (sortPrice.isEmpty()) {
+        } else if (isChooseBrand){
             sortProduct.addAll(sortProducer);
-        } else {
+        } else if (isChoosePrice){
             sortProduct.addAll(sortPrice);
         }
+
         setData(sortProduct);
         setScreen(screenMid);
         if(isNotChooseAll) {
