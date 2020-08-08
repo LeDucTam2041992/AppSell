@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import jvcontroller.Jv_Controller;
 import model.Customer;
@@ -23,6 +26,12 @@ import java.util.regex.Pattern;
 
 public class CustomController implements Initializable {
     final String CUSTOMER_FILE = "Customer.Dat";
+    @FXML
+    ImageView imgProduct;
+    @FXML
+    Text nameProduct;
+    @FXML
+    Text price;
     Product proBuy;
     @FXML
     TextField nameCustomer;
@@ -35,11 +44,14 @@ public class CustomController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     public void setProBuy(Product product) {
         this.proBuy = product;
+        Image image = new Image(proBuy.getImgLink());
+        imgProduct.setImage(image);
+        nameProduct.setText(proBuy.getProductName());
+        price.setText("Price : " + proBuy.getPrice() + " Vnd");
     }
 
     public void confirm(ActionEvent event) {

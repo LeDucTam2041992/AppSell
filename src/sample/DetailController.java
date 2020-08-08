@@ -35,19 +35,19 @@ public class DetailController implements Initializable {
     @FXML
     Text price;
     @FXML
-    TextArea spec1;
+    Text spec1;
     @FXML
-    TextArea spec2;
+    Text spec2;
     @FXML
-    TextArea spec3;
+    Text spec3;
     @FXML
-    TextArea spec4;
+    Text spec4;
     @FXML
-    TextArea spec5;
+    Text spec5;
     @FXML
-    TextArea spec6;
+    Text spec6;
     @FXML
-    TextArea spec7;
+    Text spec7;
 
     public DetailController() throws IOException {
     }
@@ -72,6 +72,7 @@ public class DetailController implements Initializable {
                 spec7.setText("Producer : " + product.getProducer());
             }
         }
+
         if (proBuy.getSpecies().equalsIgnoreCase("HeadPhone")) {
             specHeadPhone = controller.findSpecHeadPhoneOfProduct(product, specHeadPhones);
             if (specHeadPhone != null) {

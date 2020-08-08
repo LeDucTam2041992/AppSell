@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -14,7 +13,7 @@
    <center>
       <Pane prefHeight="476.0" prefWidth="410.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="productImg" fitHeight="414.0" fitWidth="454.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="productImg" fitHeight="414.0" fitWidth="454.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="goBack" layoutX="226.0" layoutY="499.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="72.0" text="Back" />
             <Button layoutX="144.0" layoutY="499.0" mnemonicParsing="false" onAction="#buy" prefHeight="25.0" prefWidth="72.0" text="Buy Now" />
             <Text fx:id="name" layoutX="96.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="250.0">
@@ -29,68 +28,69 @@
          </children>
       </Pane>
    </center>
-   <top>
-      <TextArea prefHeight="78.0" prefWidth="732.0" BorderPane.alignment="CENTER" />
-   </top>
    <right>
       <VBox prefHeight="476.0" prefWidth="338.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="spec1" editable="false" prefHeight="28.0" prefWidth="318.0">
+            <Text fx:id="spec1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
                <font>
-                  <Font size="16.0" />
-               </font></TextArea>
-            <TextArea fx:id="spec2" editable="false" prefHeight="17.0" prefWidth="278.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
-            </TextArea>
-            <TextArea fx:id="spec3" editable="false" prefHeight="17.0" prefWidth="278.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
+            </Text>
+            <Text fx:id="spec2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="spec4" editable="false" prefHeight="17.0" prefWidth="278.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="spec5" editable="false" prefHeight="17.0" prefWidth="278.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="spec6" editable="false" prefHeight="17.0" prefWidth="278.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextArea>
-            <TextArea fx:id="spec7" editable="false" prefHeight="17.0" prefWidth="278.0">
-               <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
                <VBox.margin>
+                  <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="spec3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="spec4" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="spec5" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="spec6" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="spec7" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="337.33674240112305">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
-            </TextArea>
+            </Text>
          </children>
       </VBox>
    </right>
+   <top>
+      <Pane prefHeight="93.0" prefWidth="827.0" BorderPane.alignment="CENTER" />
+   </top>
 </BorderPane>
