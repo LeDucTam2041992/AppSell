@@ -31,6 +31,8 @@ public class DetailController implements Initializable {
     @FXML
     Text name;
     @FXML
+    Text price;
+    @FXML
     TextArea screen;
     @FXML
     TextArea ram;
@@ -42,28 +44,32 @@ public class DetailController implements Initializable {
     TextArea camera;
     @FXML
     TextArea pin;
+    @FXML
+    TextArea producer;
 
     public DetailController() throws IOException {
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     public void setProduct(Product product) {
         proBuy = product;
         Specifications spec = controller.findSpecificationsOfProduct(product,specifications);
         name.setText(product.getProductName());
+        price.setText("Price : " + product.getPrice() + " Vnd");
         Image img = new Image(product.getImgLink());
         productImg.setImage(img);
-        screen.setText("Screen : " + spec.getScreen());
-        ram.setText("Ram : " + spec.getRam());
-        chip.setText("Chip : " + spec.getChip());
-        operaSystem.setText("Opera System : " + spec.getOperaSystem());
-        camera.setText("Camera : " + spec.getCamera());
-        pin.setText("Pin : " + spec.getPin());
+        if (spec != null) {
+            screen.setText("Screen : " + spec.getScreen());
+            ram.setText("Ram : " + spec.getRam());
+            chip.setText("Chip : " + spec.getChip());
+            operaSystem.setText("Opera System : " + spec.getOperaSystem());
+            camera.setText("Camera : " + spec.getCamera());
+            pin.setText("Pin : " + spec.getPin());
+            producer.setText("Producer : " + product.getProducer());
+        }
     }
 
     public void goBack(ActionEvent event) {
@@ -75,6 +81,13 @@ public class DetailController implements Initializable {
             sampleParent = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        Controller controller = loader.getController();
+        boolean checkSpecies = proBuy.getSpecies().equalsIgnoreCase("SmartPhone");
+        if (checkSpecies) {
+            controller.loadSmartPhone();
+        } else {
+            controller.loadHeadPhone();
         }
         Scene scene = new Scene(sampleParent,1000,700);
         stage.setScene(scene);
@@ -93,7 +106,7 @@ public class DetailController implements Initializable {
         }
         CustomController customController = loader.getController();
         customController.setProBuy(proBuy);
-        Scene scene = new Scene(sampleParent);
+        Scene scene = new Scene(sampleParent,1000,700);
         stage.setScene(scene);
     }
 }

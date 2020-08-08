@@ -17,6 +17,7 @@ import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
@@ -64,6 +65,8 @@ public class CustomController implements Initializable {
                 Jv_Controller jv_controller = Jv_Controller.getInstance();
                 jv_controller.writeCustomerToFile(CUSTOMER_FILE,customer);
                 customer.showInfo();
+                cancel(event);
+
             }
         }else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -84,7 +87,14 @@ public class CustomController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(sampleParent);
+        Controller controller = loader.getController();
+        boolean x = proBuy.getSpecies().equalsIgnoreCase("SmartPhone");
+        if (x) {
+            controller.loadSmartPhone();
+        } else {
+            controller.loadHeadPhone();
+        }
+        Scene scene = new Scene(sampleParent,1000,700);
         stage.setScene(scene);
     }
 }

@@ -324,14 +324,14 @@ public class Controller implements Initializable {
         checkBoxE.setSelected(false);
     }
 
-    public void loadSmartPhone(ActionEvent event) {
+    public void loadSmartPhone() {
         resetSort();
         setData(smartphone);
         dataSort = new LinkedList<>(smartphone);
         setScreen(screenMid);
     }
 
-    public void loadHeadPhone(ActionEvent event) {
+    public void loadHeadPhone() {
         resetSort();
         setData(headphone);
         dataSort = new LinkedList<>(headphone);
