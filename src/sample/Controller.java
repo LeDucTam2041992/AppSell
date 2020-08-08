@@ -31,6 +31,7 @@ public class Controller implements Initializable {
     LinkedList<Product> screenMid;
     LinkedList<Product> screenFont;
     LinkedList<Product> screenEnd;
+    LinkedList<Product> dataSort;
     LinkedList<Product> datas = new LinkedList<>();
     LinkedList<Product> smartphone = new LinkedList<>();
     LinkedList<Product> headphone = new LinkedList<>();
@@ -145,6 +146,7 @@ public class Controller implements Initializable {
             }
         }
         setData(smartphone);
+        dataSort = new LinkedList<>(smartphone);
         setScreen(screenMid);
     }
     public void setData(LinkedList<Product> data){
@@ -155,6 +157,7 @@ public class Controller implements Initializable {
             if(screenFont.isEmpty()) break;
             screenMid.add(screenFont.pop());
         }
+
     }
 
     public void goNext() {
@@ -234,6 +237,7 @@ public class Controller implements Initializable {
     }
 
     public void findProduct(ActionEvent event) throws IOException {
+        resetSort();
         String str = findName.getText();
         Product product = controller.findProductByName(str,datas);
         if(product != null) {
@@ -255,36 +259,38 @@ public class Controller implements Initializable {
         boolean isChooseC = checkBoxC.isSelected();
         boolean isChooseD = checkBoxD.isSelected();
         boolean isChooseE = checkBoxE.isSelected();
+        boolean isNotChooseAll = (!isChoose1 && !isChoose2 && !isChoose3 &&
+                !isChooseA && !isChooseB && !isChooseC && !isChooseD && !isChooseE);
         if (isChoose1) {
-            LinkedList<Product> sort1 = controller.findProductByPrice(20000000, 100000000, datas);
+            LinkedList<Product> sort1 = controller.findProductByPrice(20000000, 100000000, dataSort);
             sortPrice.addAll(sort1);
         }
         if (isChoose2) {
-            LinkedList<Product> sort2 = controller.findProductByPrice(14000000, 20000000, datas);
+            LinkedList<Product> sort2 = controller.findProductByPrice(14000000, 20000000, dataSort);
             sortPrice.addAll(sort2);
         }
         if (isChoose3) {
-            LinkedList<Product> sort3 = controller.findProductByPrice(6000000, 14000000, datas);
+            LinkedList<Product> sort3 = controller.findProductByPrice(6000000, 14000000, dataSort);
             sortPrice.addAll(sort3);
         }
         if (isChooseA) {
-            LinkedList<Product> sortA = controller.findProductByProducer("Apple", datas);
+            LinkedList<Product> sortA = controller.findProductByProducer("Apple", dataSort);
             sortProducer.addAll(sortA);
         }
         if (isChooseB) {
-            LinkedList<Product> sortB = controller.findProductByProducer("Samsung", datas);
+            LinkedList<Product> sortB = controller.findProductByProducer("Samsung", dataSort);
             sortProducer.addAll(sortB);
         }
         if (isChooseC) {
-            LinkedList<Product> sortC = controller.findProductByProducer("Huawei", datas);
+            LinkedList<Product> sortC = controller.findProductByProducer("Huawei", dataSort);
             sortProducer.addAll(sortC);
         }
         if (isChooseD) {
-            LinkedList<Product> sortD = controller.findProductByProducer("OPPO", datas);
+            LinkedList<Product> sortD = controller.findProductByProducer("OPPO", dataSort);
             sortProducer.addAll(sortD);
         }
         if (isChooseE) {
-            LinkedList<Product> sortE = controller.findProductByProducer("Xiaomi", datas);
+            LinkedList<Product> sortE = controller.findProductByProducer("Xiaomi", dataSort);
             sortProducer.addAll(sortE);
         }
         if(!sortPrice.isEmpty() && !sortProducer.isEmpty()) {
@@ -298,19 +304,34 @@ public class Controller implements Initializable {
         }
         setData(sortProduct);
         setScreen(screenMid);
-        if(sortPrice.isEmpty() && sortProducer.isEmpty()) {
-            setData(smartphone);
+        if(isNotChooseAll) {
+            setData(dataSort);
             setScreen(screenMid);
         }
     }
 
+    public void resetSort() {
+        checkBox1.setSelected(false);
+        checkBox2.setSelected(false);
+        checkBox3.setSelected(false);
+        checkBoxA.setSelected(false);
+        checkBoxB.setSelected(false);
+        checkBoxC.setSelected(false);
+        checkBoxD.setSelected(false);
+        checkBoxE.setSelected(false);
+    }
+
     public void loadSmartPhone(ActionEvent event) {
+        resetSort();
         setData(smartphone);
+        dataSort = new LinkedList<>(smartphone);
         setScreen(screenMid);
     }
 
     public void loadHeadPhone(ActionEvent event) {
+        resetSort();
         setData(headphone);
+        dataSort = new LinkedList<>(headphone);
         setScreen(screenMid);
     }
 }
