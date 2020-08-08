@@ -221,7 +221,7 @@ public class Controller implements Initializable {
         Product product = controller.findProductByName(productName, datas);
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("detail.fxml"));
+        loader.setLocation(getClass().getResource("ProductStage.fxml"));
         Parent root = null;
         try {
             root = loader.load();
@@ -229,7 +229,7 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
 
-        DetailController D_Controller = loader.getController();
+        ProductController D_Controller = loader.getController();
         D_Controller.setProduct(product);
         primaryStage.setTitle(productName);
         primaryStage.setScene(new Scene(root, 1000, 700));

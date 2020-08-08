@@ -22,7 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class DetailController implements Initializable {
+public class ProductController implements Initializable {
     Jv_Controller controller = Jv_Controller.getInstance();
     ArrayList<SpecSmartPhone> specSmartPhones = controller.readSpecSmartPhoneFromFile("SpecSmartPhone.Dat");
     ArrayList<SpecHeadPhone> specHeadPhones = controller.readSpecHeadPhoneFromFile("SpecHeadPhone.Dat");
@@ -49,7 +49,7 @@ public class DetailController implements Initializable {
     @FXML
     Text spec7;
 
-    public DetailController() throws IOException {
+    public ProductController() throws IOException {
     }
 
     @Override
@@ -92,7 +92,7 @@ public class DetailController implements Initializable {
     public void goBack(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("sample.fxml"));
+        loader.setLocation(getClass().getResource("MainStage.fxml"));
         Parent sampleParent = null;
         try {
             sampleParent = loader.load();
@@ -114,7 +114,7 @@ public class DetailController implements Initializable {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Custom.fxml"));
+        loader.setLocation(getClass().getResource("CustomStage.fxml"));
         Parent sampleParent = null;
         try {
             sampleParent = loader.load();

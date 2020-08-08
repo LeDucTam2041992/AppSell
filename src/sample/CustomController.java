@@ -83,7 +83,7 @@ public class CustomController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
             alert.setHeaderText("Have Something Not Right!");
-            alert.setContentText("Please Check Your Infomation!");
+            alert.setContentText("Please Check Your Information!");
             alert.showAndWait();
         }
     }
@@ -91,7 +91,7 @@ public class CustomController implements Initializable {
     public void goBack(ActionEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("sample.fxml"));
+        loader.setLocation(getClass().getResource("MainStage.fxml"));
         Parent sampleParent = null;
         try {
             sampleParent = loader.load();
